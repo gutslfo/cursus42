@@ -6,7 +6,7 @@
 /*   By: pitran <pitran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:33:58 by pitran            #+#    #+#             */
-/*   Updated: 2024/10/07 12:27:32 by pitran           ###   ########.fr       */
+/*   Updated: 2024/10/13 20:38:50 by pitran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@ int	ft_atoi(const char *str)
 	while ((str[i] >= 9 && str[i] <= 14) || (str[i] == 32))
 		i++;
 	neg = 1;
-	if (str[i] == "-" || str[i] == "+")
-		if (str[i] == "-")
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
 			neg += (-1);
 		i++;
+		if ((str[i] == '-') || (str[i] == '+'))
+			return (0);
+	}
 	res = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		res = res * 10 + (str[i] + 48);

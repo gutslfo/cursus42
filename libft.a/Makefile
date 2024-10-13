@@ -17,7 +17,6 @@ FLAGS       := -Wall -Wextra -Werror
 SRCS        :=      ft_strnstr.c \
                           ft_isdigit.c \
                           ft_putstr_fd.c \
-                          ft_putperc.c \
                           ft_strlcpy.c \
                           ft_strlen.c \
                           ft_memcmp.c \

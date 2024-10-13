@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pitran <pitran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 09:52:48 by pitran            #+#    #+#             */
-/*   Updated: 2024/10/07 13:11:48 by pitran           ###   ########.fr       */
+/*   Created: 2024/10/13 09:52:28 by pitran            #+#    #+#             */
+/*   Updated: 2024/10/13 20:21:09 by pitran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*source;
-	unsigned char	*temp;
+#include "libft.h"
 
-	i = 0;
-	dest = (unsigned char *) dst;
-	source = (const unsigned char *) src;
-	temp = (unsigned char *)malloc(sizeof(char) * len);
-	while (i < len)
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
 	{
-		temp[i] = src[i];
-		i++;
+		write(fd, "-", 1);
+		n = -n;
 	}
-	i = 0;
-	while (i < len)
+	if (n >= 10)
 	{
-		dest[i] = temp[i];
-		i++;
+		ft_putnbr_fd(n / 10, fd);
+		n = n % 10;
 	}
-	free(temp);
-	return (dst);
+	if (n < 10)
+	{
+		n = n + '0';
+		write (fd, &n, 1);
+	}
 }
+/*
+int main(void)
+{
+	int fd = 1;
+	ft_putnbr_fd(34, fd);
+}
+*/

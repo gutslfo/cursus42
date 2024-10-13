@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 19:34:15 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/09 19:34:15 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/09 15:07:16 by marvin            #+#    #+#             */
+/*   Updated: 2024/10/09 15:07:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char  *ft_substr(char const *s, unsigned start start, size_t len )
-{ 
-  size_t  i;
+char	*ft_strdup(const char *s)
+{
+	size_t	size;
+	char	*dup;
 
-  char *extr;
-  
-  extr = (char *)malloc(sizeof(char) * (len + 1));
-  if (!extr)
-    return (NULL);
-  i = 0;
-  while (s[start] && start < len)
-  {
-      extr[i] = s[start];
-      start++;
-      i++;
-  }
-  extr[i] = '\0';
-  return (0);
+	size = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	dup = (char *)malloc(sizeof(char) * (size + 1));
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, size);
+	dup[size] = '\0';
+	return (dup);
 }
+/*
+int main(void)
+{
+	char str[] = "Bonjour";
+
+	printf("%s\n", ft_strdup(str));
+}
+*/

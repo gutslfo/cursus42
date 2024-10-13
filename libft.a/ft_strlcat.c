@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pitran <pitran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 16:33:56 by pitran            #+#    #+#             */
-/*   Updated: 2024/10/07 16:52:28 by pitran           ###   ########.fr       */
+/*   Created: 2024/10/07 14:38:55 by pitran            #+#    #+#             */
+/*   Updated: 2024/10/13 20:36:25 by pitran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memchr(const void *s, int c, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	size_t	dst_len;
+	size_t	src_len;
 	size_t	i;
+	size_t	j;
 
-	unsigned char *pt_s;
-
-	pt_s = (unsigned char *) s;
-
-	i = 0;
-	while (i < n && pt_s[i])
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dstsize <= dst_len)
+		return (dstsize + src_len);
+	i = dst_len;
+	j = 0;
+	while (src[i] && i + j < (dstsize - 1))
 	{
-		if (pt_s[i] == (unsigned char)c)
-			return ((unsigned char *)&pt_s[i]);
-		i++;
+		dst[i] = src[j];
+		j++;
 	}
-	return (NULL);
+	dst[i + j] = '\0';
+	return (ft_strlen(dst));
 }

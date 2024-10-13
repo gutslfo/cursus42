@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:07:16 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/09 15:07:16 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/08 18:47:46 by marvin            #+#    #+#             */
+/*   Updated: 2024/10/08 18:47:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char  *ft_strdup(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-  size_t  size;
+	size_t	i;
+	size_t	j;
 
-  size = ft_strlen(s);
-  if (!s)
-    return (NULL);
-  char *dup = (char *)malloc(sizeof(char) * (size + 1));
-  if (!dup)
-    return (NULL);
-  memcpy(dup, s, size);
-  dup[size] = '\0';
-  return (dup);
-}
-
-int main(void)
-{
-  char str[] = "Bonjour";
-
-  printf("%s\n", ft_strdup(str));
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *) big);
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while (big[i + j] == little[j] && i + j < len)
+		{
+			j++;
+			if (!little[j])
+				return ((char *) big + i);
+		}
+		i++;
+	}
+	return (NULL);
 }
