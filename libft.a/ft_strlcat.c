@@ -6,7 +6,7 @@
 /*   By: pitran <pitran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:38:55 by pitran            #+#    #+#             */
-/*   Updated: 2024/10/14 01:33:08 by pitran           ###   ########.fr       */
+/*   Updated: 2024/10/14 15:11:42 by pitran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dstlen; 
+	size_t	dstlen;
 	size_t	srclen;
 	size_t	k;
 

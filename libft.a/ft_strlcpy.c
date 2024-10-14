@@ -6,7 +6,7 @@
 /*   By: pitran <pitran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:42:31 by pitran            #+#    #+#             */
-/*   Updated: 2024/10/14 01:17:03 by pitran           ###   ########.fr       */
+/*   Updated: 2024/10/14 15:12:07 by pitran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		return (len);
 	if (len < dstsize) /* si la longueur de src est inférieure à la taille du buffer, on copie l'intégralité de src */
 		cpylen = len;
-	else 
+	else
 		cpylen = dstsize - 1; /* sinon, on copie une partie des caractères en laissant un espace de mémoire pour '\0' */
 	ft_memcpy(dst, src, cpylen);
 	dst[cpylen] = '\0';
